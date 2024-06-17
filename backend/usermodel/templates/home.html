@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Dashboard</h1>
+    </header>
+    
+    <main>
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            <p>Welcome to your personalized dashboard.</p>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <p>Welcome to our site. Please <a href="{% url 'user-login' %}">login</a> or <a href="{% url 'register' %}">register</a>.</p>
+        {% endif %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
